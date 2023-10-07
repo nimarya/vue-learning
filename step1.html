@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step1 Vue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body class="h-full grid place-items-center">
+    <div id="app">
+        <div v-show="todoAssignments.length" class="bg-gray-200 rounded-lg p-6">
+            <h1 class="font-bold mb-4">To-do list</h2>
+
+            <ul>
+                <li
+                    v-for="assignment in todoAssignments" 
+                    :key="assignment.id" class="mb-2"
+                >
+                    <label>
+                        <input type="checkbox" v-model="assignment.isCompleted" class="mr-2">
+
+                        {{ assignment.name }}
+
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+        <div v-show="completedAssignments.length" class="bg-gray-200 rounded-lg p-6 mt-10">
+            <h1 class="font-bold mb-4">Completed</h2>
+
+            <ul>
+                <li
+                    v-for="assignment in completedAssignments"
+                    :key="assignment.id" class="mb-2"
+                >
+                    <label>
+                        <input type="checkbox" v-model="assignment.isCompleted" class="mr-2">
+
+                        {{ assignment.name }}
+
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let app = {
+            data() {
+                return {
+                    assignments: [
+                        {name: 'first task very very very long', isCompleted: false, id: 1},
+                        {name: 'second task', isCompleted: false, id: 2},
+                        {name: 'third task', isCompleted: false, id: 3},
+                    ]
+                }
+            },
+
+            computed: {
+                completedAssignments() {
+                    return this.assignments.filter(assignment => assignment.isCompleted);
+                },
+
+                todoAssignments() {
+                    return this.assignments.filter(assignment => ! assignment.isCompleted);
+                }
+            }
+        };
+        Vue.createApp(app).mount('#app');
+    </script>
+</body>
+</html>

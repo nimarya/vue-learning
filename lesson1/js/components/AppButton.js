@@ -16,13 +16,11 @@ export default {
     props: {
         type: {
             type: String,
-            default: 'primary'
+            default: 'primary',
         },
-    },
-
-    data() {
-        return {
-            processing: false,
+        processing: {
+            type: Boolean,
+            default: false,
         }
-    }
+    },
 };

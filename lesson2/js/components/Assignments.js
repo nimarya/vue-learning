@@ -4,8 +4,8 @@ export default {
     components: { AssignmentsList },
 
     template: `
-       <assignments-list :assignments="todoAssignments" title="To do tasks"></assignments-list>
-       <assignments-list :assignments="completedAssignments" title="Completed tasks"></assignments-list>
+       <assignments-list :assignments="filters.todoAssignments" title="To do tasks"></assignments-list>
+       <assignments-list :assignments="filters.completedAssignments" title="Completed tasks"></assignments-list>
     `,
 
     data() {
@@ -19,12 +19,11 @@ export default {
     },
 
     computed: {
-        completedAssignments() {
-            return this.assignments.filter(assignment => assignment.isCompleted);
+        filters() {
+            return {
+                completedAssignments: this.assignments.filter(assignment => assignment.isCompleted),
+                todoAssignments: this.assignments.filter(assignment => ! assignment.isCompleted)
+            };
         },
-
-        todoAssignments() {
-            return this.assignments.filter(assignment => ! assignment.isCompleted);
-        }
     }
 }

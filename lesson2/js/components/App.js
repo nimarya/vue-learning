@@ -6,6 +6,6 @@ export default {
     },
 
     template: `
-       <Assignments></Assignments>
+       <assignments></assignments>
     `,
 }

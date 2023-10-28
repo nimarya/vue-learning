@@ -9,7 +9,7 @@ export default {
             <assignments-list :assignments="filters.todoAssignments" title="To do tasks"></assignments-list>
             <assignments-list :assignments="filters.completedAssignments" title="Completed tasks"></assignments-list>
 
-            <assignment-create></assignment-create>
+            <assignment-create @add="add"></assignment-create>
         </div>
     `,
 
@@ -20,7 +20,6 @@ export default {
                 {name: 'second task', isCompleted: false, id: 2},
                 {name: 'third task', isCompleted: false, id: 3},
             ],
-            newAssignment: '',
         }
     },
 
@@ -34,13 +33,12 @@ export default {
     },
 
     methods: {
-        add() {
+        add(name) {
             this.assignments.push({
-                name: this.newAssignment,
+                name: name,
                 isCompleted: false,
                 id: this.assignments.length + 1,
             });
-            this.newAssignment = '';
         }
     }
 }

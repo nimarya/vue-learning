@@ -16,9 +16,9 @@ export default {
     data() {
         return {
             assignments: [
-                {name: 'first task very very very long', isCompleted: false, id: 1},
-                {name: 'second task', isCompleted: false, id: 2},
-                {name: 'third task', isCompleted: false, id: 3},
+                {name: 'first task very very very long', isCompleted: false, id: 1, tag: 'math'},
+                {name: 'second task', isCompleted: false, id: 2, tag: 'math'},
+                {name: 'third task', isCompleted: false, id: 3, tag: 'biology'},
             ],
         }
     },

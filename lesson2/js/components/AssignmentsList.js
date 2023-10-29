@@ -16,7 +16,7 @@ export default {
                     v-for="tag in tags"
                     class="hover:text-slate-500 text-xs"
                     :class="{
-                        'text-sky-700': tag === currentTag,
+                        'text-sky-600': tag === currentTag,
                     }"
                 >{{ tag }}</button>
             </div>

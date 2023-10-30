@@ -12,7 +12,7 @@ export default {
             </h2>
 
             <assignments-tags
-                v-model="currentTag"
+                v-model:currentTag="currentTag"
                 :tags="['all', ...new Set(assignments.map(a => a.tag))]">
             </assignments-tags>
 

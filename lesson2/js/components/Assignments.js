@@ -5,7 +5,7 @@ export default {
     components: { AssignmentsList, AssignmentCreate },
 
     template: `
-        <div class="">
+        <div>
             <assignments-list :assignments="filters.todoAssignments" title="To do tasks"></assignments-list>
             <assignments-list :assignments="filters.completedAssignments" title="Completed tasks"></assignments-list>
 

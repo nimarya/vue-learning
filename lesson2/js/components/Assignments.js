@@ -15,11 +15,7 @@ export default {
 
     data() {
         return {
-            assignments: [
-                {name: 'first task very very very long', isCompleted: false, id: 1, tag: 'math'},
-                {name: 'second task', isCompleted: false, id: 2, tag: 'math'},
-                {name: 'third task', isCompleted: false, id: 3, tag: 'biology'},
-            ],
+            assignments: [],
         }
     },
 
@@ -30,6 +26,14 @@ export default {
                 todoAssignments: this.assignments.filter(assignment => ! assignment.isCompleted)
             };
         },
+    },
+
+    created() {
+        fetch('http://localhost:3000/assignments')
+            .then(response => response.json())
+            .then(assignments => {
+                this.assignments = assignments;
+            });
     },
 
     methods: {

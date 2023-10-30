@@ -5,11 +5,11 @@ export default {
     components: { AssignmentsList, AssignmentCreate },
 
     template: `
-        <div>
-            <assignments-list :assignments="filters.todoAssignments" title="To do tasks"></assignments-list>
+        <div class="flex gap-8">
+            <assignments-list :assignments="filters.todoAssignments" title="To do tasks">
+                <assignment-create @add="add"></assignment-create>
+            </assignments-list>
             <assignments-list :assignments="filters.completedAssignments" title="Completed tasks"></assignments-list>
-
-            <assignment-create @add="add"></assignment-create>
         </div>
     `,
 

@@ -12,9 +12,8 @@ export default {
             </h2>
 
             <assignments-tags
-                :tags="['all', ...new Set(assignments.map(a => a.tag))]"
-                @change="changeCurrentTag"
-                :currentTag="currentTag">
+                v-model="currentTag"
+                :tags="['all', ...new Set(assignments.map(a => a.tag))]">
             </assignments-tags>
 
             <ul>
@@ -48,10 +47,4 @@ export default {
             return this.assignments.filter(a => a.tag === this.currentTag);
         },
     },
-
-    methods: {
-        changeCurrentTag(tag) {
-            this.currentTag = tag;
-        }
-    }
 }
